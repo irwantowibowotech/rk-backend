@@ -4,9 +4,14 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const app = express();
 
+//Router
+const userRoutes = require("./routes/user");
+
 env.config();
 
 app.use(bodyParser.json());
+
+app.use("/api", userRoutes);
 
 // Connect to mongoDB with mongoose
 mongoose
