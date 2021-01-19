@@ -5,13 +5,15 @@ const mongoose = require("mongoose");
 const app = express();
 
 //Router
-const userRoutes = require("./routes/user");
+const authRoutes = require("./routes/auth");
+const adminRoutes = require("./routes/admin/auth");
 
 env.config();
 
 app.use(bodyParser.json());
 
-app.use("/api", userRoutes);
+app.use("/api", authRoutes);
+app.use("/api", adminRoutes);
 
 // Connect to mongoDB with mongoose
 mongoose
